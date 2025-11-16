@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <style>
+      *{
+        margin:0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container {
+        width: 500px;
+        height: 600px;
+        border: 3px solid grey;
+        margin: 10px;
+        padding: 30px;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+          rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        display: flex;
+        flex-direction: column;
+        /* justify-content:center; */
+        align-items: center;
+        justify-content: space-between;
+      }
+      .top-container {
+        width: 350px;
+        height: 200px;
+        padding-bottom: 5px;
+      }
+      .top-container img {
+        width: 100%;
+      }
+      .bottom-container{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+      }
+      .bottom-container h3{
+        font-weight:normal;
+        padding-top: 5px;
+      }
+      p{
+        padding-top:10px;
+      }
+      .bottom-container>p, .bottom-container>.price-container>p{
+        color:grey;
+      }
+      .tag-container{
+        display:flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .tag-container > div, .tag-container > p{
+        padding-right:10px;
+      }
+      .tag-container>p{
+        font-weight: bold;
+        color:grey;
+      }
+      .tag-container>div{
+        background-color: forestgreen;
+        color:white;
+        font-weight: 600;
+        padding:0 10px 10px 10px;
+        border-radius: 5px;
+        margin-right:10px;
+      }
+      .tag-container>img{
+        width:100px;
+        padding-top:10px;
+
+      }
+      .price-container{
+        display:flex;
+        justify-content: space-evenly;
+        align-items:center;
+      }
+      .price-container p{
+        padding-right:10px;
+      }
+      .price-container>p:first-child{
+        font-size:20px;
+        color:black;
+      }
+      .price-container>p:last-child,.bottom-container .off{
+        color:green;
+        font-weight: 600;
+      }
+      .bottom-container button{
+        background-color: rgb(46, 46, 212);
+        color:white;
+        border:none;
+        padding:5px 10px;
+        margin-top:10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-container">
+        <img
+          src="https://rukminim2.flixcart.com/image/612/612/xif0q/smartwatch/w/x/h/-original-imahfa7xspmxemvj.jpeg"
+          alt="watch-image"
+        />
+      </div>
+      <div class="bottom-container">
+        <h3>SAMSUNG Galaxy Watch6 LTE</h3>
+        <p>Graphite Strap, 44mm</p>
+        <div class="tag-container">
+          <div><p>4.3</p></div>
+          <p>(973)</p>
+          <img
+            src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png"
+            alt="logo-img"
+          />
+        </div>
+        <div class="price-container">
+          <p>&#8377 18,999</p>
+          <p>&#8377 41,999</p>
+          <p>54% off</p>
+        </div>
+        <p class="off">Bank Offer</p>
+        <button>Buy Now</button>
+      </div>
+    </div>
+  </body>
+</html>
