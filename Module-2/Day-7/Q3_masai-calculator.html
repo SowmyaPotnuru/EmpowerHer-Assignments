@@ -1,8 +1,83 @@
 <html>
   <head>
-    <style></style>
+    <style>
+      .calculator {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .calculator > div > h1 {
+        color: darkcyan;
+        font-size: 35px;
+        font-weight: 800;
+      }
+      .calculator > div > div {
+        height: 400px;
+        width: 300px;
+        padding: 40px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+      .calculator > div > div > div {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 5px;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+      }
+
+      .calculator > div > div > div:first-child {
+        grid-column: span 4;
+      }
+      .calculator > div > div > div:nth-child(14) {
+        background-color: red;
+        color: white;
+      }
+      .calculator > div > div > div:nth-child(5),
+      .calculator > div > div > div:nth-child(9),
+      .calculator > div > div > div:nth-child(13),
+      .calculator > div > div > div:nth-child(16),
+      .calculator > div > div > div:nth-child(17) {
+        background-color: black;
+        color: white;
+      }
+    </style>
   </head>
   <body>
-    
+    <div class="calculator">
+      <div>
+        <h1>Masai Calculator</h1>
+        <div>
+          <div>empty</div>
+
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>+</div>
+
+          <div>4</div>
+          <div>5</div>
+          <div>6</div>
+          <div>-</div>
+
+          <div>7</div>
+          <div>8</div>
+          <div>9</div>
+          <div>x</div>
+
+          <div>C</div>
+          <div>0</div>
+          <div>=</div>
+          <div>/</div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
