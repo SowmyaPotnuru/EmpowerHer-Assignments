@@ -16,6 +16,7 @@ const student = {
 console.log(student)
 student.greet();
 
+//3 Arrow Function Shorthand
 const getFUllName = (first,last) => first+' '+last;
 console.log(getFUllName("Sowmya", "Potnuru"))
 
