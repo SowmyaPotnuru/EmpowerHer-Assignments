@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Alex Dev | Web Developer Portfolio" />
+    <meta property="og:description" content="Personal portfolio of a passionate web developer specializing in modern, responsive websites." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://replit.com/public/images/opengraph.png" />
+    
+    <!-- Google Fonts: Poppins (Headings) and Open Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css" />
+    
+    <title>Alex Dev | Portfolio</title>
+  </head>
+  <body>
+    
+    <!-- 1. HEADER SECTION -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">Alex<span>Dev</span></div>
+        
+        <!-- Hamburger Checkbox Hack (No JS) -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </label>
+        
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section id="home" class="hero" style="background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.8)), url('assets/hero-bg.png');">
+      <div class="hero-content">
+        <h1>Hi, I’m Alex</h1>
+        <img src="assets/profile.jpg" alt="Alex Dev" class="profile-img">
+        <div class="hero-subtitle">Web Developer & UI Designer</div>
+        <p>I craft beautiful, high-performance websites with a focus on user experience and modern design principles.</p>
+        <a href="#contact" class="btn">Contact Me</a>
+      </div>
+    </section>
+
+    <!-- 3. ABOUT ME SECTION (NEW) -->
+    <section id="about" class="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <p>
+          I am a passionate developer with over 5 years of experience in building digital products. 
+          My journey began with a simple curiosity about how websites work, which evolved into a full-blown career in web development.
+        </p>
+        <p>
+          I specialize in creating clean, responsive, and user-friendly interfaces. 
+          When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good cup of coffee.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. SKILLS SECTION -->
+    <section id="skills" class="skills">
+      <h2 class="section-title">My Skills</h2>
+      
+      <div class="skills-grid">
+        <!-- Skill 1 -->
+        <div class="skill-card">
+          <div class="skill-icon">🌐</div>
+          <h3>HTML5</h3>
+          <p>Semantic markup, accessibility standards, and clean structure.</p>
+        </div>
+        
+        <!-- Skill 2 -->
+        <div class="skill-card">
+          <div class="skill-icon">🎨</div>
+          <h3>CSS3</h3>
+          <p>Flexbox, Grid, Animations, and Responsive Design.</p>
+        </div>
+        
+        <!-- Skill 3 -->
+        <div class="skill-card">
+          <div class="skill-icon">⚡</div>
+          <h3>JavaScript</h3>
+          <p>ES6+, DOM manipulation, and asynchronous programming.</p>
+        </div>
+        
+        <!-- Skill 4 -->
+        <div class="skill-card">
+          <div class="skill-icon">⚛️</div>
+          <h3>React</h3>
+          <p>Component-based architecture, Hooks, and State Management.</p>
+        </div>
+        
+        <!-- Skill 5 -->
+        <div class="skill-card">
+          <div class="skill-icon">📱</div>
+          <h3>Responsive Design</h3>
+          <p>Mobile-first approach ensuring compatibility across all devices.</p>
+        </div>
+        
+        <!-- Skill 6 -->
+        <div class="skill-card">
+          <div class="skill-icon">🛠️</div>
+          <h3>Git & GitHub</h3>
+          <p>Version control, collaboration, and code management.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FOOTER SECTION -->
+    <footer id="contact" class="footer">
+      <div class="social-links">
+        <a href="#" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 4 0 4 1.4 2.8 4.4 8 4.4 8-2.5-2.5-7-2.5-7 0-5.6-1.6-5.6-4.4 0-1.25.28-2.35 0-3.5-.27-1.02-1.1-3.5-1-3.5 0-1 4 0 4 1.4 0 4.4 8 4.4 8s1 0 4-1.4c2.4 0 3.8 1.6 3.8 1.6 0 .8-.1 1.5-.3 2.1.7 1 .9 2.2.4 3.4-.5 1.2-1.5 2-2.7 2h-5s.7 1 2.2 1c1.5 0 2.2 1.3 2.2 2.5V22h4Z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+        <a href="#" aria-label="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+      </div>
+      <p>&copy; 2025 Alex Dev. All rights reserved.</p>
+    </footer>
+    
+  </body>
+</html>
