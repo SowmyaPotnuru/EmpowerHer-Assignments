@@ -45,18 +45,15 @@
     <script>
       const container = document.getElementById("container");
 
-      
-
       const changeBtn = document.getElementById("changeBtn");
       changeBtn.addEventListener("click", function () {
         const colorName = document.getElementById("color").value;
         const container = document.getElementById("container");
         if (colorName){
           container.style.backgroundColor = colorName;
-          
         }
         else{
-          alert("Please enter a valid color");
+          alert("Invalid color name!");
           return true;
         }
       });
