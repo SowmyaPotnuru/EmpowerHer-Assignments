@@ -49,25 +49,30 @@
       changeBtn.addEventListener("click", function () {
         const colorName = document.getElementById("color").value;
         const container = document.getElementById("container");
-        if (colorName){
+        if (validate(colorName)){
           container.style.backgroundColor = colorName;
-        }
-        else{
-          alert("Invalid color name!");
-          return true;
         }
       });
 
       const updateBtn = document.getElementById("updateBtn");
       updateBtn.addEventListener("click", function () {
         const textContent = document.getElementById("textContent").value;
-
         if (textContent === "") {
           alert("Please enter some text!");
         } else {
           document.getElementById("container").textContent = textContent;
         }
       });
+
+      function validate(color){
+        const container = document.getElementById("container");
+        container.style.backgroundColor = color;
+        if(container.style.backgroundColor === ""){
+          alert("Invalid color name");
+          return false;
+        }
+        return true;
+      }
     </script>
   </body>
 </html>
