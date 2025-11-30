@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic DOM Manipulation</title>
+</head>
+<body>
+  <ul>
+    <li>Brinjal</li>
+    <li>Carrot</li>
+    <li>Tomato</li>
+  </ul>
+  <button id="addItem">Add Item</button>
+  <script>
+    const ul = document.querySelector("ul");
+
+    const addItem = document.getElementById("addItem");
+    let  i=4;
+    addItem.addEventListener('click', function(){
+      let li = document.createElement("li");
+      li.textContent = "New Item";
+      if(i%2 == 0){
+        li.style.color = "red";
+        li.style.fontStyle = "italic";
+      }else{
+        li.style.color = "blur";
+        li.style.fontWeight = "bold";
+      }
+      ul.append(li);
+      i++;
+    })
+  </script>
+</body>
+</html>
