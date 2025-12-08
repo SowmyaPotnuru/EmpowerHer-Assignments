@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo API</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        padding: 20px;
+      }
+
+      .container {
+        width: 800px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      ul li {
+        display: flex;
+        justify-content: space-between;
+        margin: 8px 0;
+        padding: 8px;
+        background: #eee;
+        border-radius: 5px;
+      }
+
+      li.completed span:first-child {
+        text-decoration: line-through;
+        color: gray;
+      }
+
+      button {
+        margin-left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 style="text-align:center;">Todo List</h2>
+      <ul id="todoList"></ul>
+    </div>
+    <script>
+      let url = "https://jsonplaceholder.typicode.com/todos";
+      let todoList = [];
+
+      function retrieving() {
+        let saved = localStorage.getItem("todoList");
+        todoList = saved ? JSON.parse(saved) : [];
+        rendering();
+      }
+
+      function fetching() {
+        try {
+          fetch(url)
+            .then((response) => response.json())
+            .then((data) => storing(data));
+        } catch (error) {
+          console.log("Error is occured during fetching");
+        }
+      }
+
+      function storing(data) {
+        if(data.length >= 20){
+          for (let i = 0; i < 20; i++) {
+            todoList.push(data[i]);
+          }
+        }
+        // console.log(todoList);
+        localStorage.setItem("todoList", JSON.stringify(todoList));
+        rendering();
+      }
+
+      function deleting(id) {
+        todoList = todoList.filter(todo => todo.id!==id);
+        console.log(todoList);
+        storing(todoList);
+        rendering();
+      }
+
+      function markCompleted(id){
+        let todo = todoList.find(todo => todo.id === id)
+        todo.completed = !todo.completed 
+        storing(todoList);
+        rendering();
+      }
+
+      function rendering() {
+        const list = document.getElementById("todoList");
+        list.innerHTML = "";
+        if(todoList === ""){
+          let p = document.createElement("p");
+          p.textContent = "No Todos Available"
+          list.appendChild(p);
+          return;
+        }
+        todoList.forEach((todo,index) => {
+          let li = document.createElement("li");
+          if (todo.completed) {
+            li.classList.add("completed");
+          }
+          li.innerHTML = `
+            <span>${todo.title}</span>
+            <button onclick="markCompleted(${todo.id})">Mark Complete</button>
+            <button onclick="deleting(${todo.id})">Delete</button>
+          `;
+          list.appendChild(li);
+        });
+      }
+
+      fetching();
+      retrieving();
+    </script>
+  </body>
+</html>

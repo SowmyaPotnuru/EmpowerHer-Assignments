@@ -98,7 +98,7 @@
     function renderTasks(filter = "") {
         const list = document.getElementById('taskList');
         list.innerHTML = "";
-
+        console.log(tasks)
         tasks
             .filter(task => task.text.toLowerCase().includes(filter.toLowerCase()))
             .forEach(task => {
