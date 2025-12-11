@@ -1,5 +1,5 @@
 export function footer(){
-  return `<footer style="background:purple; color:wheat; padding:20px;">
+  return `<footer>
   <p>@Todos Application</p>
   </footer>`;
 }
