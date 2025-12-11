@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <h2>Signup</h2>
+    <form id="signupForm">
+      <input type="text" name="name" id="name" placeholder="Enter the name" />
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Enter the email"
+      /><br /><br />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Enter the password"
+      /><br /><br />
+      <button type="submit">Signup</button><br /><br />
+    </form>
+    <div id="footer"></div>
+    <script type="module">
+      import { navbar } from "./components/navbar.js";
+      import { footer } from "./components/footer.js";
+      document.getElementById("navbar").innerHTML = navbar();
+      document.getElementById("footer").innerHTML = footer();
+      document.getElementById("signupForm").addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const user = {
+          name,
+          email,
+          password
+        };
+        localStorage.setItem("user",JSON.stringify(user));
+        alert("Signup Successful");
+        window.location.href = "login.html";
+      });
+      localStorage.setItem("IsLoggedIn", "false");
+    </script>
+  </body>
+</html>
