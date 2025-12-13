@@ -1,7 +1,15 @@
-import FirstComponent from "./FirstComponent"
+import Content from "./Content";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 function App(){
-  return (<FirstComponent/>)
+  return (
+    <>
+    <Navbar/>
+    <Content/>
+    <Footer/>
+    </>
+  )
   
 }
 
