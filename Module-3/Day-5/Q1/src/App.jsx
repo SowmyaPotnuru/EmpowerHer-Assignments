@@ -1,5 +1,8 @@
+import Counter from "./Counter";
 function App(){
-  return <h1>This is my first webpage</h1>
+  return(
+    <Counter/>
+  )
   
 }
 
