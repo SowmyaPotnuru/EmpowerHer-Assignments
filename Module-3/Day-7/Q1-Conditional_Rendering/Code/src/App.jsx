@@ -1,5 +1,7 @@
+import ToggleComponent from "./ToggleComponent";
+
 function App(){
-  return <h1>This is my first webpage</h1>
+  return <ToggleComponent/>
   
 }
 
