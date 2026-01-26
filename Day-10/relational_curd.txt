@@ -1,0 +1,121 @@
+Step 1: Create Tables with Relationships
+
+-- Create users table
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create orders table with foreign key relationship
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    amount INTEGER NOT NULL,
+    status TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_user
+        FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE RESTRICT
+);
+
+✅ Step 2: Insert Data
+Insert Users (5 users)
+INSERT INTO users (name, email) VALUES
+('Alice', 'alice@gmail.com'),
+('Bob', 'bob@gmail.com'),
+('Charlie', 'charlie@gmail.com'),
+('Diana', 'diana@gmail.com'),
+('Ethan', 'ethan@gmail.com');
+
+Insert Orders (9 orders)
+INSERT INTO orders (user_id, amount, status) VALUES
+(1, 500, 'PLACED'),
+(1, 1200, 'SHIPPED'),
+(1, 800, 'DELIVERED'),
+
+(2, 300, 'PLACED'),
+(2, 700, 'CANCELLED'),
+
+(3, 1500, 'DELIVERED'),
+
+(4, 400, 'PLACED'),
+(4, 950, 'SHIPPED'),
+
+(5, 2000, 'DELIVERED');
+
+
+✔ User 1 has multiple orders
+✔ All orders correctly reference users(id)
+
+✅ Step 3: Read Data (Relational Reads)
+1️⃣ Fetch all users
+SELECT * FROM users;
+
+2️⃣ Fetch all orders
+SELECT * FROM orders;
+
+3️⃣ Fetch all orders for a specific user (example: user_id = 1)
+SELECT *
+FROM orders
+WHERE user_id = 1;
+
+4️⃣ Fetch users who have more than one order
+SELECT u.id, u.name, COUNT(o.id) AS order_count
+FROM users u
+JOIN orders o ON u.id = o.user_id
+GROUP BY u.id, u.name
+HAVING COUNT(o.id) > 1;
+
+5️⃣ Fetch total order amount per user
+SELECT u.id, u.name, SUM(o.amount) AS total_amount
+FROM users u
+JOIN orders o ON u.id = o.user_id
+GROUP BY u.id, u.name;
+
+✅ Step 4: Update Data
+1️⃣ Update email of one user (example: user_id = 3)
+UPDATE users
+SET email = 'charlie_new@gmail.com'
+WHERE id = 3;
+
+2️⃣ Update status of all orders for a specific user (user_id = 1)
+UPDATE orders
+SET status = 'DELIVERED'
+WHERE user_id = 1;
+
+3️⃣ Update order amount for a single order (order_id = 5)
+UPDATE orders
+SET amount = 900
+WHERE id = 5;
+
+✅ Step 5: Delete Data
+1️⃣ Delete one order using order id (order_id = 9)
+DELETE FROM orders
+WHERE id = 9;
+
+2️⃣ Delete all orders of a specific user (user_id = 2)
+DELETE FROM orders
+WHERE user_id = 2;
+
+3️⃣ Attempt deleting a user with existing orders
+DELETE FROM users
+WHERE id = 1;
+
+
+❌ This will fail due to foreign key constraint:
+
+ERROR: update or delete on table "users" violates foreign key constraint
+
+
+✔ This prevents orphaned orders
+
+
+Step 6: Conceptual Question
+-- Orders should not be stored inside the users table because:
+-- 1. One user can have multiple orders (one-to-many relationship)
+-- 2. It violates database normalization rules
+-- 3. Causes data duplication and poor scalability
+-- 4. Makes querying, updating, and maintaining data difficult
